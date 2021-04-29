@@ -1,42 +1,36 @@
 window.addEventListener('DOMContentLoaded', event => {
     const board = document.getElementById('tic-tac-toe-board');
     let player = 0;
-
+    const playArray = [ , , , , , , , , ]
     board.addEventListener('click', event => {
         let eti = event.target.id
         let et = event.target;
+        let squareNum = eti[eti.length-1]
 
         if (eti === 'tic-tac-toe-board') {
-            // console.log(eti)
+
         } else {
-            // const elem = eti;
+
 
             const xImage = document.createElement('img', )
             xImage.src = 'https://assets.aaonline.io/Module-DOM-API/formative-project-tic-tac-toe/player-x.svg'
 
-            // console.log(xImage.src)
+
             const oImage = document.createElement('img', )
             oImage.src = 'https://assets.aaonline.io/Module-DOM-API/formative-project-tic-tac-toe/player-o.svg'
-                // console.log(eti)
 
 
-            // et.appendChild(xImage);
-            console.log(Object.values(et));
-            // console.log(document.querySelectorAll("played"))
-            // console.log(et.className);
-            // if (et === xImage.src || et === oImage.src) {
-            //     console.log('gut');
-            // }
-            if (!player) {
+            if ((!player) && (playArray[squareNum] === undefined)) {
                 et.appendChild(oImage);
-                // et.classList.add("played")
+                playArray[squareNum] = player;
                 player = 1;
-            } else {
+            } else if ((player) && (playArray[squareNum] === undefined)){
                 et.appendChild(xImage);
+                playArray[squareNum] = player;
                 player = 0;
-                // et.classList.add("played")
             }
-
+            console.log(playArray[squareNum])
+            console.log(playArray)
         }
     })
 
